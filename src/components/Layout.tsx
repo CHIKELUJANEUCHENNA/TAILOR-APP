@@ -11,7 +11,6 @@ const MainContainer = styled.div`
 
 const ContentWrapper = styled.div`
   flex: 1;
-  padding: 20px; // Adjust padding as needed
 `;
 
 interface IChildren {
