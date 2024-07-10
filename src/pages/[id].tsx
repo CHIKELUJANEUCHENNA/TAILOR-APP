@@ -4,6 +4,15 @@ import { topSellingProducts, pantProducts, vintageProducts } from "./store";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Icons from "@/components/Icons";
+import { useCart } from '@/components/CartContext';
+
+interface Product {
+  id: number;
+  name: string;
+  color: string;
+  price: string;
+  image: string;
+}
 
 const StyledProdductDetail = styled.div`
   display: flex;
@@ -53,6 +62,7 @@ const size = ["XXS", "XS", "S", "M", "L", "XL", "XXL"];
 function ProductDetails() {
   const products = [...topSellingProducts, ...vintageProducts, ...pantProducts];
   const router = useRouter();
+  const { addToCart } = useCart();
   const { id } = router.query;
   const product = products.find((p) => p.id.toString() === id);
 
@@ -60,6 +70,10 @@ function ProductDetails() {
     return <p>Product not found</p>;
   }
 
+  const handleCart = (product: Product) => {
+    addToCart(product),
+    router.push('/cart')
+  }
   return (
     <StyledProdductDetail>
       <Image src={product.image} alt="img" width={685} height={705} />
@@ -79,7 +93,7 @@ function ProductDetails() {
             <button key={i} className="size-btn">{item}</button>
           ))}
         </div>
-        <button className="add">
+        <button className="add" onClick={() => handleCart(product)}>
           <Icons type="add-cart" />
           Add To Cart
         </button>
