@@ -76,9 +76,6 @@ const Navbar = () => {
         <NavItem href="/store" passHref>
           STORE
         </NavItem>
-        <NavItem href="/style" passHref>
-          STYLE
-        </NavItem>
         <NavItem href="/about" passHref>
           ABOUT
         </NavItem>

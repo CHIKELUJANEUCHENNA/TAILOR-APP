@@ -87,7 +87,7 @@ const ProductColor = styled.p`
   color: #333;
 `;
 
-const topSellingProducts = [
+export const topSellingProducts = [
   {
     id: 1,
     name: "Brown Leather Shirt",
@@ -117,7 +117,7 @@ const topSellingProducts = [
     color: "Fiesta Jean",
   },
 ];
-const vintageProducts = [
+export const vintageProducts = [
   {
     id: 5,
     name: "Limpopo Vintage",
@@ -147,7 +147,7 @@ const vintageProducts = [
     color: "Gray",
   },
 ];
-const pantProducts = [
+export const pantProducts = [
   {
     id: 9,
     name: "Pant",
@@ -194,7 +194,7 @@ function store() {
         </Display>
         <ProductsContainer>
           {topSellingProducts.map((product, i) => (
-            <ProductCard key={product.id} onClick={() => router.push(`/product/${product.id}`)}>
+            <ProductCard key={product.id} onClick={() => router.push(`/${product.id}`)}>
               <Favourite>
                 <ProductImage src={product.image} alt={product.name} />
                 <Icons type="favourite" />
@@ -213,7 +213,7 @@ function store() {
         </Display>
         <ProductsContainer>
           {vintageProducts.map((product, i) => (
-            <ProductCard key={product.id} onClick={() => router.push(`/product/${product.id}`)}>
+            <ProductCard key={product.id} onClick={() => router.push(`/${product.id}`)}>
               <Favourite>
                 <ProductImage src={product.image} alt={product.name} />
                 <Icons type="favourite" />
@@ -232,7 +232,7 @@ function store() {
         </Display>
         <ProductsContainer>
           {pantProducts.map((product, i) => (
-            <ProductCard key={product.id} onClick={() => router.push(`/product/${product.id}`)}>
+            <ProductCard key={product.id} onClick={() => router.push(`/${product.id}`)}>
               <Favourite>
                 <ProductImage src={product.image} alt={product.name} />
                 <Icons type="favourite" />
